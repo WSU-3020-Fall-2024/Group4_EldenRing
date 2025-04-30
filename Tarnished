@@ -1,0 +1,70 @@
+import java.util.*;
+
+class Tarnished {
+    private String name;
+    int hp;
+    int minDamage = 15;
+    int maxDamage = 25;
+    private String sword;
+    private String mount;
+    private int runes;
+    int flaskCharges;
+    double flaskHealPercent;
+    private Scanner scanner = new Scanner(System.in);
+
+    public Tarnished() {
+        System.out.println("Awaken Tarnished, the lost hero without memory but not without purpose.");
+        System.out.print("What is thy name, hero? ");
+        this.name = scanner.nextLine();
+        this.hp = 100;
+        this.sword = "King’s Greatsword";
+        this.mount = "Torrent";
+        this.runes = 0;
+        this.flaskCharges = 3;
+        this.flaskHealPercent = 0.36;
+        System.out.println("Now " + name + ", seek allies and prove yourself worthy of becoming the Elden Lord.");
+    }
+
+    public int attack() {
+        return new Random().nextInt(maxDamage - minDamage + 1) + minDamage;
+    }
+
+    public int heal() {
+        if (flaskCharges > 0) {
+            int healAmount = (int) (100 * flaskHealPercent);
+            hp = Math.min(hp + healAmount, 100);
+            flaskCharges--;
+            return healAmount;
+        }
+        return 0;
+    }
+
+    public void upgradeWeapon(int minBoost, int maxBoost) {
+        minDamage += minBoost;
+        maxDamage += maxBoost;
+        System.out.println("Your sword feels sharper and more powerful.");
+    }
+
+    public void setFlaskHealPercent(double value) {
+        this.flaskHealPercent = value;
+    }
+
+    public void resetAfterBattle() {
+        hp = 100;
+        flaskCharges = 3;
+        System.out.println("Your HP and flasks have been restored.");
+    }
+
+    public void displayStats() {
+        System.out.println("==== TARNISHED STATS ====");
+        System.out.println("Name: " + name);
+        System.out.println("Health: " + hp + "%");
+        System.out.println("Sword: " + sword);
+        System.out.println("Mount: " + mount);
+        System.out.println("Flask Charges: " + flaskCharges);
+        System.out.println("Flask Heal: " + (int)(flaskHealPercent * 100) + "%");
+        System.out.println("Runes: " + runes);
+        System.out.println("Damage: " + minDamage + "-" + maxDamage);
+        System.out.println("=========================");
+    }
+}

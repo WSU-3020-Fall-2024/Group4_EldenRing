@@ -11,8 +11,8 @@ class Radagon extends Boss {
         if (!secondPhaseTriggered) {
             secondPhaseTriggered = true;
             System.out.println("Radagon transforms into the Elden Beast!");
-            this.minDamage += 25;
-            this.maxDamage += 25;
+            this.minDamage += 20;
+            this.maxDamage += 30;
         }
     }
 }

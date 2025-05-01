@@ -83,7 +83,7 @@ public class EldenRingGame {
            
             System.out.println("Do you Want to upgrade your weapon again? (yes/no)'");
             if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                player.upgradeWeapon(10, 15);
+                player.upgradeWeapon(15, 20);
                 System.out.println("Hewg: 'Good luck'");
             }
         }

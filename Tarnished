@@ -1,4 +1,4 @@
-import java.util.*;
+mport java.util.*;
 
 interface Healable {
     void useFlask();
@@ -22,6 +22,11 @@ class Tarnished implements Healable {
     double flaskHealPercent;
 
     private Scanner scanner = new Scanner(System.in);
+    
+    public void addRunes(int amount) {
+    this.runes += amount;
+    System.out.println("Gained " + amount + " runes. Total: " + this.runes);
+}
 
     public Tarnished() {
         new GameInitializer(); // use of unique constructor class
@@ -88,3 +93,4 @@ class Tarnished implements Healable {
         System.out.println("=========================");
     }
 }
+

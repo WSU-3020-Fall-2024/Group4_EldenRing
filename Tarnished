@@ -1,6 +1,16 @@
 import java.util.*;
 
-class Tarnished {
+interface Healable {
+    void useFlask();
+}
+
+class GameInitializer {
+    public GameInitializer() {
+        System.out.println("[GameInitializer] Setting up the Lands Between...");
+    }
+}
+
+class Tarnished implements Healable {
     private String name;
     int hp;
     int minDamage = 15;
@@ -10,10 +20,13 @@ class Tarnished {
     private int runes;
     int flaskCharges;
     double flaskHealPercent;
+
     private Scanner scanner = new Scanner(System.in);
 
     public Tarnished() {
+        new GameInitializer(); // use of unique constructor class
         System.out.println("Awaken Tarnished, the lost hero without memory but not without purpose.");
+        System.out.println("Cross the veil between the lands to stand before the Elden Ring and become the Elden Lord.");
         System.out.print("What is thy name, hero? ");
         this.name = scanner.nextLine();
         this.hp = 100;
@@ -22,11 +35,13 @@ class Tarnished {
         this.runes = 0;
         this.flaskCharges = 3;
         this.flaskHealPercent = 0.36;
-        System.out.println("Now " + name + ", seek allies and prove yourself worthy of becoming the Elden Lord.");
+
+        System.out.println("Now " + name + ", seek allies, face the trials and prove yourself worthy of becoming the Elden Lord.");
+        System.out.println("Grace has bestowed you with a great sword worthy of a king to be and a mighty steed known as Torrent.");
     }
 
     public int attack() {
-        return new Random().nextInt(maxDamage - minDamage + 1) + minDamage;
+        return new Random().nextInt(11) + minDamage;
     }
 
     public int heal() {
@@ -35,8 +50,14 @@ class Tarnished {
             hp = Math.min(hp + healAmount, 100);
             flaskCharges--;
             return healAmount;
+        } else {
+            return 0;
         }
-        return 0;
+    }
+
+    public void useFlask() {
+        int amount = heal();
+        System.out.println("Used flask. Healed for: " + amount);
     }
 
     public void upgradeWeapon(int minBoost, int maxBoost) {
@@ -64,7 +85,6 @@ class Tarnished {
         System.out.println("Flask Charges: " + flaskCharges);
         System.out.println("Flask Heal: " + (int)(flaskHealPercent * 100) + "%");
         System.out.println("Runes: " + runes);
-        System.out.println("Damage: " + minDamage + "-" + maxDamage);
         System.out.println("=========================");
     }
 }

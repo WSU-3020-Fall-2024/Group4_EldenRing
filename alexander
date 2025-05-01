@@ -4,12 +4,12 @@ class Alexander extends Boss {
     }
 
     public int getRandomDamage() {
-        return new Random().nextInt(super.maxDamage - super.minDamage + 1) + super.minDamage; // using super
+        return new Random().nextInt(maxDamage - minDamage + 1) + minDamage;
     }
 
     public void enterSecondPhase() {
-        if (!super.secondPhaseTriggered) {
-            super.secondPhaseTriggered = true;
+        if (!secondPhaseTriggered) {
+            secondPhaseTriggered = true;
             System.out.println("Alexander heats up! His body glows red with magma and his attacks grow fiercer.");
             this.minDamage += 8;
             this.maxDamage += 12;

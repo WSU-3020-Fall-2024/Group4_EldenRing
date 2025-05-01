@@ -1,3 +1,4 @@
+
 public class EldenRingGame {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -57,6 +58,7 @@ public class EldenRingGame {
         if (!alexBattle.start()) {
             System.out.println("Alexander has bested you. Your journey ends here.");
             return;
+           
         }
 
         System.out.println("Alexander: 'Well done, Tarnished. Seek Hewg for your next upgrade.'");
@@ -81,7 +83,7 @@ public class EldenRingGame {
            
             System.out.println("Do you Want to upgrade your weapon again? (yes/no)'");
             if (scanner.nextLine().equalsIgnoreCase("yes")) {
-                player.upgradeWeapon(3, 5);
+                player.upgradeWeapon(10, 15);
                 System.out.println("Hewg: 'Good luck'");
             }
         }
@@ -89,4 +91,3 @@ public class EldenRingGame {
         System.out.println("You defeated all bosses. You are now the Elden Lord!");
     }
 }
-

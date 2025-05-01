@@ -1,0 +1,18 @@
+class Radagon extends Boss {
+    public Radagon() {
+        super("Radagon", 120, 30, 40);
+    }
+
+    public int getRandomDamage() {
+        return new Random().nextInt(maxDamage - minDamage + 1) + minDamage;
+    }
+
+    public void enterSecondPhase() {
+        if (!secondPhaseTriggered) {
+            secondPhaseTriggered = true;
+            System.out.println("Radagon transforms into the Elden Beast!");
+            this.minDamage += 25;
+            this.maxDamage += 30;
+        }
+    }
+}

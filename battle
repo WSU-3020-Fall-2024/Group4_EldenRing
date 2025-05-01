@@ -1,4 +1,3 @@
-
 class Battle {
     Tarnished player;
     Boss boss;
@@ -39,6 +38,14 @@ class Battle {
             }
         }
 
-        return player.hp > 0;
+        if (player.hp > 0) {
+            System.out.println("You have defeated " + boss.name + "!");
+            if (GameData.bossRewards.containsKey(boss.name)) {
+                player.addRunes(GameData.bossRewards.get(boss.name));
+            }
+            player.resetAfterBattle(); 
+            return true;
+        }
+        return false;
     }
 }

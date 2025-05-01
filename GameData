@@ -1,0 +1,15 @@
+class GameData {
+    public static List<String> unlockedAreas = new ArrayList<>();
+    public static Map<String, Integer> bossRewards = new HashMap<>();
+
+    public static void initData() {
+        unlockedAreas.add("Limgrave");
+        unlockedAreas.add("Stormveil Castle");
+
+        bossRewards.put("Alexander", 100000);
+        bossRewards.put("Margit", 150000);
+        bossRewards.put("Radahn", 200000);
+        bossRewards.put("Godfrey", 300000);
+        bossRewards.put("Radagon", 500000);
+    }
+}

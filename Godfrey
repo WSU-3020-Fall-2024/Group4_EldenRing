@@ -1,3 +1,4 @@
+
 class Godfrey extends Boss {
     public Godfrey() {
         super("Godfrey", 140, 25, 35);
